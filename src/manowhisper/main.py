@@ -13,6 +13,7 @@ model_map = {
     "sexism": "annahaz/xlm-roberta-base-finetuned-misogyny-sexism",
     "emotion": "j-hartmann/emotion-english-distilroberta-base",
     "homophobia": "bitsanlp/Homophobia-Transphobia-v2-mBERT-EDA",
+    "toxicity": "s-nlp/roberta_toxicity_classifier",
 }
 
 
@@ -26,8 +27,9 @@ def cli():
 @cli.command()
 @click.option(
     "--model",
-    type=click.Choice(["transphobia", "sexism", "hate", "misogyny",
-                       "homophobia"]),
+    type=click.Choice(
+        ["transphobia", "sexism", "hate", "misogyny", "homophobia", "toxicity"]
+    ),
     required=True,
     help="Model to use for classification.",
 )
